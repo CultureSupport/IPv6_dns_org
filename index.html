@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Security-Focused IPv6 DNS Resolvers</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for readability and aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* GitHub Dark Background */
+        }
+        .container-card {
+            background-color: #161b22; /* Slightly lighter card background */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid #30363d;
+        }
+        .code-block {
+            background-color: #1e242a; /* Darker background for code */
+            border-left: 4px solid #3b82f6; /* Blue border accent */
+            overflow-x: auto;
+        }
+        /* Mobile-friendly table styling */
+        .responsive-table th, .responsive-table td {
+            padding: 12px 10px;
+            text-align: left;
+        }
+        .responsive-table thead {
+            display: none; /* Hide header on mobile */
+        }
+        .responsive-table tr {
+            display: block;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #30363d;
+        }
+        .responsive-table td {
+            display: block;
+            text-align: right;
+            border-bottom: 1px solid #30363d;
+        }
+        .responsive-table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: 600;
+            color: #9ca3af;
+        }
+        .responsive-table td:last-child {
+            border-bottom: none;
+        }
+        /* Revert table on larger screens */
+        @media (min-width: 768px) {
+            .responsive-table thead {
+                display: table-header-group;
+            }
+            .responsive-table tr {
+                display: table-row;
+                margin-bottom: 0;
+                border: none;
+            }
+            .responsive-table td {
+                display: table-cell;
+                text-align: left;
+                border-bottom: 1px solid #30363d;
+            }
+            .responsive-table td::before {
+                content: none;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen flex justify-center items-start">
+
+    <div class="container-card w-full max-w-6xl p-6 md:p-10 rounded-xl text-gray-200 mt-8">
+
+        <header class="pb-6 border-b border-gray-700 mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-400 mb-2">
+                <span role="img" aria-label="Lock and Globe">🔒</span> Security-Focused IPv6 DNS Guide
+            </h1>
+            <p class="text-gray-400 text-lg">
+                A curated list of public DNS providers that block malware, phishing, and offer enhanced security via IPv6.
+            </p>
+        </header>
+
+        <!-- DNS PROVIDERS TABLE -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-100 mb-6 border-b border-gray-800 pb-3">
+                <span class="text-yellow-400 mr-2">📋</span> Top 15 IPv6 Security DNS Providers
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="responsive-table w-full text-sm">
+                    <thead class="bg-gray-700/50">
+                        <tr>
+                            <th class="rounded-tl-lg">#</th>
+                            <th>Provider Name</th>
+                            <th>Primary IPv6 Address</th>
+                            <th>Secondary IPv6 Address</th>
+                            <th class="rounded-tr-lg">Security Feature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">1</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">Quad9 (Secure)</td>
+                            <td data-label="Primary IPv6 Address">`2620:fe::fe`</td>
+                            <td data-label="Secondary IPv6 Address">`2620:fe::9`</td>
+                            <td data-label="Security Feature">Blocks threats, DNSSEC, DoT/DoH support.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">2</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">AdGuard DNS (Default)</td>
+                            <td data-label="Primary IPv6 Address">`2a10:50c0::ad1:ff`</td>
+                            <td data-label="Secondary IPv6 Address">`2a10:50c0::ad2:ff`</td>
+                            <td data-label="Security Feature">Ad blocking, malware/phishing protection.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">3</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">Cloudflare (Security)</td>
+                            <td data-label="Primary IPv6 Address">`2606:4700:4700::1112`</td>
+                            <td data-label="Secondary IPv6 Address">`2606:4700:4700::1002`</td>
+                            <td data-label="Security Feature">Malware and adult content blocking (`1.1.1.2` equivalent).</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">4</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">OpenDNS (FamilyShield)</td>
+                            <td data-label="Primary IPv6 Address">`2620:119:35::35`</td>
+                            <td data-label="Secondary IPv6 Address">`2620:119:53::53`</td>
+                            <td data-label="Security Feature">Malware and basic adult content filtering.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">5</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">CleanBrowsing (Security)</td>
+                            <td data-label="Primary IPv6 Address">`2a0d:2a00:1::1`</td>
+                            <td data-label="Secondary IPv6 Address">`2a0d:2a00:2::1`</td>
+                            <td data-label="Security Feature">Blocks malware, phishing, and explicit content.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">6</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">NextDNS</td>
+                            <td data-label="Primary IPv6 Address">`2a0d:2406:1801::`</td>
+                            <td data-label="Secondary IPv6 Address">`2a0d:2406:1802::`</td>
+                            <td data-label="Security Feature">Customizable security lists (e.g., threat intelligence feeds).</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">7</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">Verisign Public DNS</td>
+                            <td data-label="Primary IPv6 Address">`2620:74:1b::1:1`</td>
+                            <td data-label="Secondary IPv6 Address">`2620:74:1c::2:2`</td>
+                            <td data-label="Security Feature">High reliability with mandatory DNSSEC validation.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">8</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">Yandex.DNS (Safe)</td>
+                            <td data-label="Primary IPv6 Address">`2a02:6b8:0:1::feed:1ff`</td>
+                            <td data-label="Secondary IPv6 Address">`2a02:6b8:0:1::feed:1ff`</td>
+                            <td data-label="Security Feature">Blocks viruses and fraudulent websites.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">9</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">Neustar UltraDNS (Threat)</td>
+                            <td data-label="Primary IPv6 Address">`2610:a1:1018::3`</td>
+                            <td data-label="Secondary IPv6 Address">`2610:a1:1019::3`</td>
+                            <td data-label="Security Feature">Threat protection and malware blocking.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">10</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">DNS.SB</td>
+                            <td data-label="Primary IPv6 Address">`2a09::`</td>
+                            <td data-label="Secondary IPv6 Address">`2a11::`</td>
+                            <td data-label="Security Feature">Strict DNSSEC and DNS over TLS (DoT) support.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">11</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">Control D</td>
+                            <td data-label="Primary IPv6 Address">`2606:1a40::`</td>
+                            <td data-label="Secondary IPv6 Address">`2606:1a40:1::`</td>
+                            <td data-label="Security Feature">Powerful rule engine for advanced filtering.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">12</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">Google Public DNS (Standard)</td>
+                            <td data-label="Primary IPv6 Address">`2001:4860:4860::8888`</td>
+                            <td data-label="Secondary IPv6 Address">`2001:4860:4860::8844`</td>
+                            <td data-label="Security Feature">High security baseline, supports DNSSEC and DoT/DoH.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">13</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">dns0.eu (Family)</td>
+                            <td data-label="Primary IPv6 Address">`2a0f:fc80::3`</td>
+                            <td data-label="Secondary IPv6 Address">`2a0f:fc81::3`</td>
+                            <td data-label="Security Feature">Malware and adult content filtering (European focus).</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">14</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">AdGuard DNS (Family)</td>
+                            <td data-label="Primary IPv6 Address">`2a10:50c0::bad1:ff`</td>
+                            <td data-label="Secondary IPv6 Address">`2a10:50c0::bad2:ff`</td>
+                            <td data-label="Security Feature">Ad blocking and adult content protection.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/30 transition-colors">
+                            <td data-label="#">15</td>
+                            <td data-label="Provider Name" class="font-semibold text-blue-300">CleanBrowsing (Adult Filter)</td>
+                            <td data-label="Primary IPv6 Address">`2a0d:2a00:1::1`</td>
+                            <td data-label="Secondary IPv6 Address">`2a0d:2a00:2::1`</td>
+                            <td data-label="Security Feature">Blocks adult and malicious content.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CONFIGURATION SECTION -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-100 mb-6 border-b border-gray-800 pb-3">
+                <span class="text-green-400 mr-2">⚙️</span> Configuration Examples
+            </h2>
+
+            <div class="space-y-8">
+                <!-- Linux/macOS Example -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-200 mb-3">1. Linux/macOS (Terminal via `networksetup`)</h3>
+                    <p class="text-gray-400 mb-2">Use this command on macOS to temporarily set the DNS for your Wi-Fi interface. Adapt the service name for Ethernet.</p>
+                    <pre class="code-block p-4 rounded-lg text-sm"><code># Example using Quad9 (Secure) IPv6 addresses
+
+sudo networksetup -setdnsservers "Wi-Fi" 2620:fe::fe 2620:fe::9
+
+# Verify the change
+networksetup -getdnsservers "Wi-Fi"</code></pre>
+                </div>
+
+                <!-- Linux Systemd-resolved Example -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-200 mb-3">2. Linux (Editing `systemd-resolved.conf`)</h3>
+                    <p class="text-gray-400 mb-2">For distributions using `systemd-resolved`, modify the configuration file to make the change permanent.</p>
+                    <pre class="code-block p-4 rounded-lg text-sm"><code># Edit the configuration file
+sudo nano /etc/systemd/resolved.conf
+
+# Add or uncomment the DNS and DNSSEC lines:
+# [Resolve]
+# DNS=2620:fe::fe 2620:fe::9
+# DNSSEC=true
+
+# Restart the service to apply changes
+sudo systemctl restart systemd-resolved</code></pre>
+                </div>
+
+                <!-- Windows PowerShell Example -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-200 mb-3">3. Windows (PowerShell)</h3>
+                    <p class="text-gray-400 mb-2">Run PowerShell as Administrator to configure the DNS for a specific network adapter by its index number.</p>
+                    <pre class="code-block p-4 rounded-lg text-sm"><code># Open PowerShell as Administrator
+
+# Find your network adapter's index (look for the "InterfaceIndex")
+Get-NetAdapter | Select-Object Name, InterfaceIndex
+
+# Set the IPv6 DNS for the interface (e.g., index 12, using AdGuard)
+Set-DnsClientServerAddress -InterfaceIndex 12 -ServerAddresses ("2a10:50c0::ad1:ff","2a10:50c0::ad2:ff")
+
+# Verify the settings
+Get-DnsClientServerAddress -InterfaceIndex 12</code></pre>
+                </div>
+
+                <!-- Router Note -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-200 mb-3">4. Router Configuration (Recommended)</h3>
+                    <p class="text-gray-400">
+                        The best method for network-wide security is configuring the DNS directly on your router. Look for **WAN**, **Internet Settings**, or **DHCP/DNS Settings** in your router's admin panel to update the **IPv6 DNS Servers** fields.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEST PRACTICES -->
+        <section class="pt-6 border-t border-gray-700">
+            <h2 class="text-2xl font-bold text-gray-100 mb-4">
+                <span class="text-red-400 mr-2">💡</span> Security Best Practices
+            </h2>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li>**Encrypted DNS:** Whenever possible, configure your device or router to use **DNS over TLS (DoT)** or **DNS over HTTPS (DoH)** to prevent third parties from seeing your DNS queries.</li>
+                <li>**Consistency:** Use the Primary and Secondary addresses from the **same provider** to maintain a consistent security policy and prevent fallback to a non-filtering server.</li>
+                <li>**Monitoring:** Periodically check that your DNS settings have not been reset by an update or modified by malware.</li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>
+
